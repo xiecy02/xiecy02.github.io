@@ -8,51 +8,50 @@
         background-position: center center !important;
     }
     
-    /* 核心修复：强行重置 PaperMod 的全屏高度限制 */
+    /* 1. 强行解除 PaperMod 的全屏弹性限制 */
     .profile_wrapper {
-        min-height: 0 !important;
-        display: block !important;
+        display: block !important;    /* 取消 flex 布局 */
+        min-height: 0 !important;     /* 取消最小高度 */
     }
 
+    /* 2. 让玻璃框高度随内容自适应 */
     .main {
         background: rgba(255, 255, 255, 0.25) !important;
         backdrop-filter: blur(15px);
         -webkit-backdrop-filter: blur(15px); 
         
-        /* 紧凑布局设置 */
         padding: 30px 20px !important; 
         border-radius: 25px;            
         
-        /* 宽度限制：让它变成一个小方块 */
-        max-width: 350px !important;    
-        width: 90% !important;
-        min-height: 0 !important;      /* 彻底解除高度限制 */
+        /* 宽度你满意的数值 */
+        max-width: 320px !important;    
+        width: 85% !important;
         
-        /* 垂直位置：25vh 代表离顶部 25% 的距离 */
-        margin: 25vh auto !important;   
+        /* 关键：强制高度收缩 */
+        min-height: 0 !important;      
+        height: auto !important;       
+
+        /* 垂直居中控制：通过 margin 实现 */
+        margin: 30vh auto !important;   
         
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
         border: 1px solid rgba(255, 255, 255, 0.15);
         text-align: center;
     }
 
-    /* 内部元素间距压缩 */
+    /* 3. 消除内部元素的默认上下撑开 */
     .profile_inner {
-        margin: 0 !important;
+        min-height: 0 !important;
         padding: 0 !important;
+        margin: 0 !important;
     }
 
     .profile_inner h1 {
-        font-size: 1.8rem !important;
+        font-size: 1.6rem !important;
         margin: 0 0 10px 0 !important;
         color: #fff;
     }
 
-    .dark .main { 
-        background: rgba(0, 0, 0, 0.4) !important; 
-    }
-
-    /* 顶部导航和菜单美化 */
     .menu a, .logo a { 
         color: #ffffff !important; 
         font-weight: 700 !important; 
