@@ -6,37 +6,10 @@
         background-size: cover !important;
         background-repeat: no-repeat !important;
         background-position: center center !important;
-        overflow-x: hidden; /* 防止出现横向滚动条 */
-    }
-    
-    /* 暴力截断：强制让玻璃框变成“行内块”，它就没法撑开全屏了 */
-    .main {
-        background: rgba(255, 255, 255, 0.25) !important;
-        backdrop-filter: blur(15px);
-        -webkit-backdrop-filter: blur(15px); 
-        
-        display: inline-block !important; /* 关键：让它像文字一样只占该占的位置 */
-        padding: 40px 50px !important;    /* 稍微给点呼吸感 */
-        border-radius: 25px;            
-        
-        min-height: 0 !important;      
-        height: auto !important;       
-        width: auto !important;        /* 宽度也随内容走 */
-        max-width: 90% !important;
-
-        /* 水平垂直定位 */
-        position: relative !important;
-        left: 50% !important;
-        transform: translateX(-50%) !important;
-        margin-top: 25vh !important;   
-        
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        border: 1px solid rgba(255, 255, 255, 0.15);
-        text-align: center;
     }
 
-    /* 强行抹平内部所有撑开高度的属性 */
-    .profile_wrapper, .profile_inner {
+    /* 暴力锁定：把所有可能撑开高度的层级全部强制重置 */
+    .profile_wrapper, .profile_inner, .main {
         display: block !important;
         min-height: 0 !important;
         height: auto !important;
@@ -44,13 +17,36 @@
         margin: 0 !important;
     }
 
-    .profile_inner h1 {
-        font-size: 2rem !important;
-        margin: 0 0 15px 0 !important;
-        color: #fff;
-        text-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+    /* 重新定义一个纯粹的、只包裹文字的玻璃框 */
+    .main {
+        background: rgba(255, 255, 255, 0.25) !important;
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px); 
+        
+        /* 这里的 padding 控制玻璃框的大小，你可以根据喜好微调 */
+        padding: 50px 40px !important; 
+        border-radius: 30px;
+        
+        /* 宽度和水平居中 */
+        width: 320px !important;
+        margin: 25vh auto 0 auto !important; 
+        
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        text-align: center;
     }
 
+    /* 内部文字间距 */
+    .profile_inner h1 {
+        font-size: 2rem !important;
+        margin-bottom: 10px !important;
+        color: #fff !important;
+    }
+    .profile_inner .subtitles {
+        color: rgba(255,255,255,0.8) !important;
+    }
+
+    /* 导航栏样式保持 */
     .menu a, .logo a { 
         color: #ffffff !important; 
         font-weight: 700 !important; 
