@@ -1,0 +1,22 @@
+/* 设置全屏背景图 */
+body {
+    background-image: url("/background.jpg");
+    background-attachment: fixed;    /* 背景固定，不随滚动条滚动 */
+    background-size: cover;          /* 图片自动拉伸铺满全屏 */
+    background-repeat: no-repeat;    /* 不重复平铺 */
+    background-position: center;     /* 图片居中 */
+}
+
+/* 重点：为了不让背景图太晃眼，给内容区加个半透明的“毛玻璃”效果 */
+.main, .post-content, .post-header {
+    background: rgba(255, 255, 255, 0.85); /* 白色半透明 */
+    padding: 20px;
+    border-radius: 12px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+/* 如果是深色模式，背景改成深色半透明 */
+.dark .main, .dark .post-content, .dark .post-header {
+    background: rgba(30, 30, 30, 0.85);
+}
