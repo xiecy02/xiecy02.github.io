@@ -1,55 +1,69 @@
 <script src="https://api.vvhan.com/api/script/yinghua"></script>
 <style>
+    /* 1. 全局背景设置 */
     body {
         background-image: url("/background.jpg") !important;
         background-attachment: fixed !important;
         background-size: cover !important;
         background-repeat: no-repeat !important;
         background-position: center center !important;
+        overflow-x: hidden;
     }
 
-    /* 暴力锁定：把所有可能撑开高度的层级全部强制重置 */
-    .profile_wrapper, .profile_inner, .main {
-        display: block !important;
-        min-height: 0 !important;
-        height: auto !important;
-        padding: 0 !important;
-        margin: 0 !important;
-    }
-
-    /* 重新定义一个纯粹的、只包裹文字的玻璃框 */
+    /* 2. 彻底撕掉玻璃框：移除背景、模糊和边框 */
     .main {
-        background: rgba(255, 255, 255, 0.25) !important;
-        backdrop-filter: blur(15px);
-        -webkit-backdrop-filter: blur(15px); 
+        background: none !important;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+        box-shadow: none !important;
+        border: none !important;
         
-        /* 这里的 padding 控制玻璃框的大小，你可以根据喜好微调 */
-        padding: 50px 40px !important; 
-        border-radius: 30px;
-        
-        /* 宽度和水平居中 */
-        width: 320px !important;
-        margin: 25vh auto 0 auto !important; 
-        
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        border: 1px solid rgba(255, 255, 255, 0.15);
-        text-align: center;
+        /* 调整内容垂直位置，避开顶部 Sakura 文字 */
+        margin-top: 32vh !important; 
+        text-align: center !important;
     }
 
-    /* 内部文字间距 */
+    /* 3. 强化首页文字阴影，确保无框也清晰 */
     .profile_inner h1 {
-        font-size: 2rem !important;
-        margin-bottom: 10px !important;
-        color: #fff !important;
+        font-size: 3.2rem !important;
+        color: #ffffff !important;
+        font-weight: 800 !important;
+        text-shadow: 2px 2px 20px rgba(0, 0, 0, 0.8), 0 0 10px rgba(0, 0, 0, 0.5) !important;
     }
     .profile_inner .subtitles {
-        color: rgba(255,255,255,0.8) !important;
+        font-size: 1.3rem !important;
+        color: #ffffff !important;
+        text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.8) !important;
     }
 
-    /* 导航栏样式保持 */
+    /* 4. 导航栏样式：确保在深浅背景下都可见 */
     .menu a, .logo a { 
         color: #ffffff !important; 
         font-weight: 700 !important; 
-        text-shadow: 1px 1px 8px rgba(0, 0, 0, 0.9);
+        text-shadow: 1px 1px 12px rgba(0, 0, 0, 1) !important;
+    }
+
+    /* 5. 全局文章标签美化：樱花粉效果 */
+    .post-tags a, .terms-tags li a, .tag {
+        background: rgba(255, 182, 193, 0.45) !important; 
+        color: #fff !important;
+        padding: 4px 12px !important;
+        border-radius: 12px !important;
+        margin: 5px !important;
+        display: inline-block !important;
+        transition: 0.3s ease !important;
+        border: 1px solid rgba(255, 255, 255, 0.2) !important;
+        text-decoration: none !important;
+    }
+    .post-tags a:hover, .terms-tags li a:hover {
+        background: rgba(255, 105, 180, 0.7) !important;
+        transform: translateY(-2px);
+    }
+
+    /* 抹平主题自带的容器填充 */
+    .profile_wrapper, .profile_inner {
+        background: none !important;
+        padding: 0 !important;
+        min-height: 0 !important;
     }
 </style>
