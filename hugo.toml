@@ -5,30 +5,11 @@ theme = 'PaperMod'
 
 [params]
     env = "production"
-    description = "Xie's Personal Blog"
-    author = "Xie"
-    
-    # 启用自定义 CSS 资源加载
     customCSS = ["css/extended.css"]
-
-    # 首页个人配置
     [params.profileMode]
         enabled = true
         title = "Sakura Diaries"
         subtitle = "Study | Life"
 
-# 核心：允许脚本运行的关键设置
 [markup.goldmark.renderer]
     unsafe = true
-
-# 菜单配置
-[[menu.main]]
-    identifier = "posts"
-    name = "文章"
-    url = "/posts/"
-    weight = 10
-[[menu.main]]
-    identifier = "tags"
-    name = "标签"
-    url = "/tags/"
-    weight = 20
