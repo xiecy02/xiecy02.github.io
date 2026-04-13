@@ -10,5 +10,27 @@ theme = 'PaperMod'
         title = "Sakura Diaries"
         subtitle = "Study | Life"
 
+# 导航菜单配置：找回文章和标签，并新增 Study 和 Life
+[[menu.main]]
+    identifier = "posts"
+    name = "文章"
+    url = "/posts/"
+    weight = 10
+[[menu.main]]
+    identifier = "tags"
+    name = "标签"
+    url = "/tags/"
+    weight = 20
+[[menu.main]]
+    identifier = "study"
+    name = "Study"
+    url = "/categories/study/"
+    weight = 30
+[[menu.main]]
+    identifier = "life"
+    name = "Life"
+    url = "/categories/life/"
+    weight = 40
+
 [markup.goldmark.renderer]
     unsafe = true

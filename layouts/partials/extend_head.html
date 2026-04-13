@@ -3,23 +3,24 @@
     body {
         background-image: url("/background.jpg") !important;
         background-attachment: fixed !important;
-        background-size: cover !important;      /* 强制铺满全屏，解决重复问题 */
-        background-repeat: no-repeat !important; /* 禁止平铺 */
-        background-position: center !important;  /* 图片居中 */
+        background-size: cover !important;
+        background-repeat: no-repeat !important;
+        background-position: center !important;
     }
     .main {
         background: rgba(255, 255, 255, 0.35) !important;
         backdrop-filter: blur(12px);
         -webkit-backdrop-filter: blur(12px); 
-        padding: 40px;                  /* 增加内边距，让文字离边缘有距离 */
+        padding: 40px;
         border-radius: 20px;
-        max-width: 500px !important;    /* 缩小宽度，让毛玻璃更聚拢 */
-        margin: 120px auto !important;  /* 增加顶部距离，离顶部的 Sakura 远一点 */
+        max-width: 500px !important;
+        margin: 120px auto !important; 
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     }
     .dark .main { 
         background: rgba(20, 20, 20, 0.45) !important; 
     }
+    /* 确保导航栏文字在背景下清晰 */
     .menu a, .logo a { 
         color: #ffffff !important; 
         font-weight: 700 !important; 
