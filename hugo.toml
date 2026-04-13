@@ -5,7 +5,6 @@ theme = 'PaperMod'
 
 [params]
     env = "production"
-    customCSS = ["css/extended.css"]
     [params.profileMode]
         enabled = true
         title = "Sakura Diaries"
