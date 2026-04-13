@@ -1,22 +1,53 @@
-/* 设置全屏背景图 */
+/* 1. 背景图设置 */
 body {
-    background-image: url("/background.jpg");
-    background-attachment: fixed;    /* 背景固定，不随滚动条滚动 */
-    background-size: cover;          /* 图片自动拉伸铺满全屏 */
-    background-repeat: no-repeat;    /* 不重复平铺 */
-    background-position: center;     /* 图片居中 */
+    background-image: url("/background.jpg") !important;
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
-/* 重点：为了不让背景图太晃眼，给内容区加个半透明的“毛玻璃”效果 */
-.main, .post-content, .post-header {
-    background: rgba(255, 255, 255, 0.85); /* 白色半透明 */
-    padding: 20px;
-    border-radius: 12px;
-    margin-top: 20px;
-    margin-bottom: 20px;
+/* 2. 中间毛玻璃区域 (调小尺寸版) */
+.main {
+    background: rgba(255, 255, 255, 0.35) !important;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px); 
+    padding: 30px;
+    border-radius: 20px;
+    
+    /* 核心尺寸修改：让它变窄一点，背景露出来更多 */
+    max-width: 550px !important; 
+    margin: 80px auto !important; 
+    
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
-/* 如果是深色模式，背景改成深色半透明 */
-.dark .main, .dark .post-content, .dark .post-header {
-    background: rgba(30, 30, 30, 0.85);
+.dark .main {
+    background: rgba(20, 20, 20, 0.45) !important;
+}
+
+/* 3. 右上角导航文字（加深清晰度） */
+.menu a {
+    color: #ffffff !important;
+    font-weight: 700 !important;
+    text-shadow: 1px 1px 8px rgba(0, 0, 0, 0.8);
+    margin-left: 20px;
+}
+
+.menu a:hover {
+    color: #ffb6c1 !important; /* 悬停粉色 */
+}
+
+/* 4. 左上角 Logo 文字 */
+.logo a {
+    color: #ffffff !important;
+    font-weight: 800;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.6);
+}
+
+/* 5. 底部信息美化 */
+.footer {
+    border: none !important;
+    color: rgba(255, 255, 255, 0.8) !important;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
 }

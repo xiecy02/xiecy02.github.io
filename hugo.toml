@@ -3,42 +3,32 @@ languageCode = 'zh-cn'
 title = 'Sakura Diaries'
 theme = 'PaperMod'
 
-# 强制开启资源处理功能
 [params]
-    env = "production" # 必须设置为生产环境，否则某些压缩混淆可能不生效
-    description = "Wei's Personal Blog"
-    author = "Wei"
+    env = "production"
+    description = "Xie's Personal Blog"
+    author = "Xie"
     
-    # --- 核心修复部分 ---
-    # 告诉 PaperMod 加载 assets/css/ 目录下的自定义样式
-    # 如果 assets/css/ 下有多个文件，都会按顺序加载
+    # 启用自定义 CSS 资源加载
     customCSS = ["css/extended.css"]
 
-    # 允许输出 HTML 标签（这对某些脚本插件是必要的）
-    [markup.goldmark.renderer]
-        unsafe = true
-
-    # --- 导航栏配置 (根据需要修改) ---
-    [[menu.main]]
-        identifier = "posts"
-        name = "文章"
-        url = "/posts/"
-        weight = 10
-    [[menu.main]]
-        identifier = "tags"
-        name = "标签"
-        url = "/tags/"
-        weight = 20
-
-    # --- 首页个人配置 ---
+    # 首页个人配置
     [params.profileMode]
         enabled = true
         title = "Sakura Diaries"
-        subtitle = "电子信息研究生 | 记录科研与生活"
-        # imageUrl = "你的头像地址" 
+        subtitle = "Study | Life"
 
-    # --- 其他功能配置 ---
-    [params.displayFullContent]
-        enabled = false
-    [params.ShowCodeCopyButtons]
-        enabled = true
+# 核心：允许脚本运行的关键设置
+[markup.goldmark.renderer]
+    unsafe = true
+
+# 菜单配置
+[[menu.main]]
+    identifier = "posts"
+    name = "文章"
+    url = "/posts/"
+    weight = 10
+[[menu.main]]
+    identifier = "tags"
+    name = "标签"
+    url = "/tags/"
+    weight = 20
