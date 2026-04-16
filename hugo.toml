@@ -5,6 +5,17 @@ theme = 'PaperMod'
 
 [params]
     env = "production"
+    
+    # --- 新增：浏览器标签页图标 ---
+[params.assets]
+    favicon = "/favicon.ico"
+    apple_touch_icon = "/apple-touch-icon.png"  # 专门给手机系统用的图标
+    # --- 新增：左上角文字前的图标 ---
+    [params.label]
+        text = "Sakura Diaries"
+        icon = "/favicon.ico"  # 图标放在文字开头
+        iconHeight = 30       # 你可以根据图标大小微调高度
+
     [params.profileMode]
         enabled = true
         title = "Sakura Diaries"
