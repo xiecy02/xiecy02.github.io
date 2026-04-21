@@ -1,27 +1,32 @@
-/* 魏的文章详情页背景板优化 */
+/* 魏的文章详情页背景板 - 强力修正版 */
 
-/* 当进入具体的文章页面时（也就是 single 模式） */
-.single .main {
-    /* 1. 设置背景颜色：使用主题预设的变量，这样能自动适应白天黑夜 */
-    background-color: var(--entry); /* --entry 是首页卡片的颜色变量 */
-    
-    /* 2. 添加圆角，和首页卡片保持一致 */
-    border-radius: 8px;
-    
-    /* 3. 添加内边距，让文字不要贴着边缘，提高阅读体验 */
-    padding: 30px 40px;
-    
-    /* 4. 添加微弱的阴影，增加层次感（可选） */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-    
-    /* 5. 确保背景板垂直居中，且四周留有空隙，避免占满全屏 */
-    margin: 30px auto;
-    max-width: calc(100% - 60px); /* 手机端四周留 30px 空隙 */
+/* 1. 针对文章主体区域 */
+.post-content,
+.post-single {
+    background-color: var(--theme); /* 使用主题背景色变量 */
+    filter: brightness(0.98);       /* 稍微调暗一点点，突出层次 */
+    padding: 30px;
+    border-radius: 12px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 }
 
-/* 适配手机端，缩小内边距 */
-@media screen and (max-width: 768px) {
-    .single .main {
-        padding: 20px;
-    }
+/* 2. 在黑夜模式下自动变色 */
+.dark .post-content,
+.dark .post-single {
+    background-color: rgba(30, 30, 32, 0.9); /* 深色透明背景 */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+/* 3. 让标题和日期也好看一点 */
+.post-header {
+    background: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 12px 12px 0 0;
+    margin-bottom: -20px; /* 紧贴下面的内容 */
+}
+
+.dark .post-header {
+    background: rgba(40, 40, 42, 0.9);
 }
