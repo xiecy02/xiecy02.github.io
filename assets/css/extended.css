@@ -1,19 +1,27 @@
-body {
-    background-image: url("/background.jpg") !important;
-    background-attachment: fixed;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
+/* 魏的文章详情页背景板优化 */
+
+/* 当进入具体的文章页面时（也就是 single 模式） */
+.single .main {
+    /* 1. 设置背景颜色：使用主题预设的变量，这样能自动适应白天黑夜 */
+    background-color: var(--entry); /* --entry 是首页卡片的颜色变量 */
+    
+    /* 2. 添加圆角，和首页卡片保持一致 */
+    border-radius: 8px;
+    
+    /* 3. 添加内边距，让文字不要贴着边缘，提高阅读体验 */
+    padding: 30px 40px;
+    
+    /* 4. 添加微弱的阴影，增加层次感（可选） */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    
+    /* 5. 确保背景板垂直居中，且四周留有空隙，避免占满全屏 */
+    margin: 30px auto;
+    max-width: calc(100% - 60px); /* 手机端四周留 30px 空隙 */
 }
-.main {
-    background: rgba(255, 255, 255, 0.35) !important;
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px); 
-    padding: 30px;
-    border-radius: 20px;
-    max-width: 550px !important; 
-    margin: 80px auto !important; 
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+
+/* 适配手机端，缩小内边距 */
+@media screen and (max-width: 768px) {
+    .single .main {
+        padding: 20px;
+    }
 }
-.dark .main { background: rgba(20, 20, 20, 0.45) !important; }
-.menu a, .logo a { color: #ffffff !important; font-weight: 700 !important; text-shadow: 1px 1px 8px rgba(0, 0, 0, 0.8); }
