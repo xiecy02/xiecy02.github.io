@@ -4,7 +4,7 @@ chcp 65001 > nul
 cls
 
 :: ====================== 配置区（只改这里）======================
-set BLOG_PATH=D:\code\xiecy02.github.io
+set BLOG_PATH=D:\My_GitHub\xiecy02.github.io
 set PROXY_PORT=7890
 :: ==========================================================
 
